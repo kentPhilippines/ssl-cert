@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    url: jdbc:sqlite:certdb.db
+    driver-class-name: org.sqlite.JDBC
+  
+  jpa:
+    database-platform: org.sqlite.hibernate.dialect.SQLiteDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+server:
+  port: 80
+logging:
+  level:
+    root: INFO
+    com.certapp: DEBUG
+    org.springframework.web: INFO
+  file:
+    name: logs/application.log
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"

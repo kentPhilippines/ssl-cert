@@ -1,0 +1,22 @@
+certificate-easy-apply/
+├── src/
+│   └── main/
+│       ├── java/
+│       │   └── com/certapp/
+│       │       ├── CertificateApplication.java
+│       │       ├── controller/
+│       │       ├── service/
+│       │       ├── repository/
+│       │       └── model/
+│       └── resources/
+│           ├── static/                # 静态资源目录
+│           │   ├── index.html        # 主页
+│           │   ├── certificate.html  # 证书申请页
+│           │   ├── list.html        # 证书列表页
+│           │   ├── css/
+│           │   │   ├── common.css
+│           │   │   └── form.css
+│           │   └── js/
+│           │       ├── api.js
+│           │       └── form.js
+│           └── application.yml

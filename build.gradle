@@ -1,0 +1,53 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.7.18'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'com.certapp'
+version = '1.0-SNAPSHOT'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_15
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://repo.spring.io/milestone' }
+}
+
+dependencies {
+    // Spring Boot 核心依赖
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    
+    // 数据库支持
+    implementation 'org.xerial:sqlite-jdbc:3.42.0.0'
+    implementation 'com.github.gwenn:sqlite-dialect:0.1.2'
+    
+    // 开发工具
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+    // 测试依赖
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.bouncycastle:bcprov-jdk15on:1.70'
+    // 添加ACME客户端依赖
+    implementation 'org.shredzone.acme4j:acme4j-client:2.16'
+    implementation 'org.shredzone.acme4j:acme4j-utils:2.16'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+// 添加Gradle包装器任务
+wrapper {
+    gradleVersion = '8.5'
+} 
